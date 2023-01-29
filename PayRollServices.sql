@@ -21,3 +21,7 @@ INSERT INTO employee_payroll (EmpName, Salary, StartDate) VALUES
 
 --UC-4-Retrieve-Employee-Payroll-Data--
 SELECT * FROM employee_payroll;
+
+--UC-5-Retrieve-Salary-Of-Particular-Employee-And-Particular-Date-Range--
+SELECT salary FROM employee_payroll WHERE EmpName = 'Vishnu'
+SELECT * FROM employee_payroll WHERE StartDate between cast ('2015-07-01' as date) and GETDATE();
