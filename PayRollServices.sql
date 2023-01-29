@@ -29,3 +29,10 @@ SELECT * FROM employee_payroll WHERE StartDate between cast ('2015-07-01' as dat
 --UC6-Add-Gender-To-Employee-Payroll-Table-And-Update--
 ALTER TABLE employee_payroll ADD Gender char(1)
 update employee_payroll set Gender = 'M' where Id in (1,2,3,4,5) 
+
+--UC-7-Find-Sum, Average, Min, Max And Number Of Male And Female Employees--
+select sum(Salary) as SumSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender;
+select avg(Salary) as AvgSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender; 
+select max(Salary) as MaxSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender; 
+select min(Salary) as MinSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender; 
+select count(EmpName) as EmployeeCount,Gender from employee_payroll WHERE Gender = 'M' group by Gender;
