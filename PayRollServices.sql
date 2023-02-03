@@ -45,7 +45,15 @@ ALTER TABLE employee_payroll add Address varchar(200) default 'Bangalore';
 
 --UC-9-Extend Table To Have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay--
 alter table employee_payroll add 
+								 Basic_Pay float not null default 0.00,
 								 Deductions float not null default 0.00,
 								 Taxable_Pay float not null default 0.00, 
 								 Income_Tax float not null default 0.00,
 								 Net_Pay float not null default 0.00;
+
+--UC10-Adding-Department-of-Terisa-As-Sales-&-Marketing-Both--
+INSERT INTO employee_payroll
+(EmpName, Department, Gender, Basic_pay, Deductions, Taxable_Pay, Income_Tax, Net_Pay, StartDate) VALUES
+('Terrisa', 'SD', 'M', 3000000.00, 1000000.00, 2000000.00, 500000.00, 1500000.00, '2018-01-03' );
+update employee_payroll set Net_Pay = (Basic_Pay-Deductions-Taxable_Pay-Income_Tax);
+select * from employee_payroll;
