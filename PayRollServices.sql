@@ -36,3 +36,9 @@ select avg(Salary) as AvgSalary,Gender from employee_payroll WHERE Gender = 'M' 
 select max(Salary) as MaxSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender; 
 select min(Salary) as MinSalary,Gender from employee_payroll WHERE Gender = 'M' group by Gender; 
 select count(EmpName) as EmployeeCount,Gender from employee_payroll WHERE Gender = 'M' group by Gender;
+
+--UC-8-Add Employee Phone, Department(not null), Address (using default values)--
+select * from employee_payroll
+alter table employee_payroll add Phone bigint;
+ALTER TABLE employee_payroll add Department varchar(200) not null default 'IT';
+ALTER TABLE employee_payroll add Address varchar(200) default 'Bangalore';
