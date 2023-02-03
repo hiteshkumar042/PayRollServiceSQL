@@ -44,7 +44,6 @@ ALTER TABLE employee_payroll add Department varchar(200) not null default 'IT';
 ALTER TABLE employee_payroll add Address varchar(200) default 'Bangalore';
 
 --UC-9-Extend Table To Have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay--
---exec sp_rename 'employee_payroll.salary','Basic_pay','column';
 alter table employee_payroll add 
 								 Deductions float not null default 0.00,
 								 Taxable_Pay float not null default 0.00, 
